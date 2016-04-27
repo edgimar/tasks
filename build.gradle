@@ -10,7 +10,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0-alpha5'
+        classpath 'com.android.tools.build:gradle:2.1.0'
     }
 }
 
@@ -24,11 +24,11 @@ android {
     }
 
     compileSdkVersion 'android-N'
-    buildToolsVersion "24.0.0-rc2"
+    buildToolsVersion "24.0.0-rc3"
 
     defaultConfig {
-        versionCode 407
-        versionName "4.8.16"
+        versionCode 408
+        versionName "4.8.17"
         minSdkVersion 14
         targetSdkVersion 23
 
@@ -43,7 +43,7 @@ android {
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
-        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
 //        sourceCompatibility JavaVersion.VERSION_1_8
 //        targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -88,8 +88,8 @@ dependencies {
     compile 'com.google.dagger:dagger:2.1'
 
     compile 'com.nononsenseapps:filepicker:2.5.2'
-    compile 'com.android.support:design:23.2.1'
-    compile 'com.android.support:support-v13:23.2.1'
+    compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:support-v13:23.3.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.jakewharton.timber:timber:4.1.1'
     compile 'com.google.guava:guava:19.0'

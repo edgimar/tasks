@@ -101,15 +101,15 @@ public class TasksWidget extends InjectingAppWidgetProvider {
         if (preferences.getBoolean(WidgetConfigActivity.PREF_HIDE_HEADER + id, false)) {
             remoteViews.setViewVisibility(R.id.widget_header, View.GONE);
         }
-        int opacity = preferences.getInt(WidgetConfigActivity.PREF_WIDGET_OPACITY + id, WidgetConfigActivity.DEFAULT_OPACITY);
+        int legacyOpacity = preferences.getInt(WidgetConfigActivity.PREF_WIDGET_OPACITY + id, 100);
+        int defaultOpacity = legacyOpacity < 100 ? legacyOpacity : WidgetConfigActivity.DEFAULT_OPACITY;
+        int opacity = preferences.getInt(WidgetConfigActivity.PREF_WIDGET_OPACITY_V2 + id, defaultOpacity);
         remoteViews.setImageViewBitmap(R.id.widget_background,
                 getSolidBackground(theme.getContentBackground()));
         remoteViews.setImageViewBitmap(R.id.widget_header_background,
                 getSolidBackground(theme.getPrimaryColor()));
-        if (opacity < 100) {
-            remoteViews.setInt(R.id.widget_background, "setAlpha", opacity);
-            remoteViews.setInt(R.id.widget_header_background, "setAlpha", opacity);
-        }
+        remoteViews.setInt(R.id.widget_background, "setAlpha", opacity);
+        remoteViews.setInt(R.id.widget_header_background, "setAlpha", opacity);
         if (!theme.isDark()) {
             remoteViews.setInt(R.id.widget_header_separator, "setVisibility", View.GONE);
         }
